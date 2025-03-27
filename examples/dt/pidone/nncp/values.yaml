@@ -50,7 +50,12 @@ data:
     tenant_ip: 172.19.0.11
     ctlplane_ip: 192.168.122.16
     storage_ip: 172.18.0.11
-
+  node_7:
+    name: ostest-worker-4
+    internalapi_ip: 172.17.0.12
+    tenant_ip: 172.19.0.12
+    ctlplane_ip: 192.168.122.16
+    storage_ip: 172.18.0.11
   # networks
   ctlplane:
     dnsDomain: ctlplane.example.com

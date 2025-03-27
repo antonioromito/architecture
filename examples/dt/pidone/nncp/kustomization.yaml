@@ -362,6 +362,48 @@ replacements:
         fieldPaths:
           - spec.desiredState.interfaces.[name=storage].ipv4.address.0.prefix-length
 
+  # prefix-length: node-7
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.ctlplane.prefix-length
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[type=linux-bridge].ipv4.address.0.prefix-length
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.internalapi.prefix-length
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[name=internalapi].ipv4.address.0.prefix-length
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.tenant.prefix-length
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[name=tenant].ipv4.address.0.prefix-length
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.storage.prefix-length
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[name=storage].ipv4.address.0.prefix-length
+
 
   - source:
       kind: ConfigMap
@@ -410,6 +452,19 @@ replacements:
         fieldPaths:
           - metadata.name
           - spec.nodeSelector.[kubernetes.io/hostname]
+
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.node_7.name
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - metadata.name
+          - spec.nodeSelector.[kubernetes.io/hostname]
+
 
 patches:
   - target:
