@@ -565,6 +565,44 @@ instances:
         parent_interface: enp6s0
         skip_nm: false
         vlan_id: 22
+  ocp-worker-4:
+    hostname: ocp-worker-4
+    name: ocp-worker-4
+    networks:
+      ctlplane:
+        interface_name: enp6s0
+        ip_v4: 192.168.122.17
+        mac_addr: "0a:02:ca:be:0b:45"
+        mtu: 1500
+        network_name: ctlplane
+        skip_nm: false
+      internalapi:
+        interface_name: enp6s0.20
+        ip_v4: 172.17.0.17
+        mac_addr: "52:54:00:1b:6e:a0"
+        mtu: 1500
+        network_name: internalapi
+        parent_interface: enp6s0
+        skip_nm: false
+        vlan_id: 20
+      storage:
+        interface_name: enp6s0.21
+        ip_v4: 172.18.0.17
+        mac_addr: "52:54:00:56:fa:94"
+        mtu: 1500
+        network_name: storage
+        parent_interface: enp6s0
+        skip_nm: false
+        vlan_id: 21
+      tenant:
+        interface_name: enp6s0.22
+        ip_v4: 172.19.0.17
+        mac_addr: "52:54:00:18:a0:g3"
+        mtu: 1500
+        network_name: tenant
+        parent_interface: enp6s0
+        skip_nm: false
+        vlan_id: 22
 networks:
   ctlplane:
     dns_v4:
