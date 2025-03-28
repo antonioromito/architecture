@@ -193,6 +193,48 @@ replacements:
         fieldPaths:
           - spec.desiredState.interfaces.[name=storage].ipv4.address.0.ip
 
+  # Static Node IPs: node-7
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.node_7.internalapi_ip
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[name=internalapi].ipv4.address.0.ip
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.node_7.tenant_ip
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[name=tenant].ipv4.address.0.ip
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.node_7.ctlplane_ip
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[type=linux-bridge].ipv4.address.0.ip
+  - source:
+      kind: ConfigMap
+      name: network-values
+      fieldPath: data.node_7.storage_ip
+    targets:
+      - select:
+          kind: NodeNetworkConfigurationPolicy
+          name: node-7
+        fieldPaths:
+          - spec.desiredState.interfaces.[name=storage].ipv4.address.0.ip
+
 
   # prefix-length: node-3
   - source:
@@ -403,7 +445,6 @@ replacements:
           name: node-7
         fieldPaths:
           - spec.desiredState.interfaces.[name=storage].ipv4.address.0.prefix-length
-
 
   - source:
       kind: ConfigMap
